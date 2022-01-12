@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model HomeProductVm 
+
+<form asp-controller="Product" asp-action="FilterProduct">
+    <input name="minPrice" type="number" />
+    <input name="maxPrice" type="number" />
+
+    <select name="categoryId" id="cars">
+      <option value="1">Telefon</option>
+      <option value="2">Notbook</option>
+    </select>
+
+    <input type="submit" />
+</form>
+
+
+@foreach (var pro in Model.Products)
+{
+
+<div class="col-lg-3">
+    <h1> <a href="/Product/Detail/@pro.ID">@pro.Name</a></h1>
+    <p>@pro.Description</p>
+    <span>@pro.Price</span>
+    
+</div>
+}
+
+
+
